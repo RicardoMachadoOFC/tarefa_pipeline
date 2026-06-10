@@ -1,0 +1,25 @@
+name: Validacao HTML
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+    
+      - name: Verificar HTML
+        run: test -f tarefa_pipeline/teste.html
+
+     
+      - name: Verificar tag html
+        run: grep -i "<html" tarefa_pipeline/teste.html
+
+   
+      - name: Verificar tag body
+        run: grep -i "<body" tarefa_pipeline/teste.html
